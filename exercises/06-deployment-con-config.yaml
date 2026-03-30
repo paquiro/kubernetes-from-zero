@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: nginx:alpine     # using nginx for this exercise
+          envFrom:
+            - configMapRef:
+                name: api-config          # loads ALL variables from the ConfigMap
+            - secretRef:
+                name: db-credentials      # loads ALL variables from the Secret
