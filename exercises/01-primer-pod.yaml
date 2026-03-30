@@ -1,0 +1,12 @@
+apiVersion: v1        # K8s API version used for this resource
+kind: Pod             # Resource type
+metadata:
+  name: my-first-pod  # Unique name within the namespace
+  labels:
+    app: hello        # Labels: used to group and select resources
+spec:
+  containers:
+    - name: server    # Container name inside the Pod
+      image: nginx:alpine  # Docker image (lightweight nginx)
+      ports:
+        - containerPort: 80  # Port exposed by the container
