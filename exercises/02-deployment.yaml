@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3                  # I want 3 Pods running at all times
+  selector:
+    matchLabels:
+      app: nginx               # This Deployment manages Pods with this label
+  template:                    # Template used to create each Pod
+    metadata:
+      labels:
+        app: nginx             # Label that all created Pods will have
+    spec:
+      containers:
+        - name: server
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
