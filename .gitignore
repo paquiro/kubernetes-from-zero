@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Kubernetes sensitive files
+*secret*.yaml
+*secrets*.yaml
+kubeconfig
+*.kubeconfig
+
+# Helm
+charts/
+*.tgz
+
+# AWS
+.env
+*.pem
+cluster-config.yaml
